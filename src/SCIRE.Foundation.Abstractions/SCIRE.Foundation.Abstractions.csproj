@@ -1,0 +1,27 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net10.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+
+        <IsPackable>true</IsPackable>
+        <PackageId>SCIRE.Foundation.Abstractions</PackageId>
+        <Version>0.1.0-alpha.1</Version>
+        <Authors>net.cscience</Authors>
+        <Description>Shared abstractions for SCIRE feature-based applications.</Description>
+
+        <RepositoryType>git</RepositoryType>
+        <RepositoryUrl>https://github.com/OWNER/scire-foundation</RepositoryUrl>
+
+
+        <GenerateDocumentationFile>true</GenerateDocumentationFile>
+        <IncludeSymbols>true</IncludeSymbols>
+        <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <Content Include=".github\workflows\publish-nuget.yml" />
+    </ItemGroup>
+    
+</Project>
