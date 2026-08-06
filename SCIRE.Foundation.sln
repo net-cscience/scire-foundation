@@ -2,7 +2,7 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SCIRE.Foundation.Abstractions", "src\SCIRE.Foundation.Abstractions\SCIRE.Foundation.Abstractions.csproj", "{CE9B6A28-5ABC-4E8C-9D8B-11618638320E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SCIRE.Foundation.Abstractions.Tests", "test\SCIRE.Foundation.Abstractions.Tests\SCIRE.Foundation.Abstractions.Tests.csproj", "{67A7C3B9-80B1-47C9-A16D-A0ED9CCFF2BE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SCIRE.Foundation.Abstractions.Tests", "tests\SCIRE.Foundation.Abstractions.Tests\SCIRE.Foundation.Abstractions.Tests.csproj", "{67A7C3B9-80B1-47C9-A16D-A0ED9CCFF2BE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
