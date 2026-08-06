@@ -7,7 +7,7 @@
 
         <IsPackable>true</IsPackable>
         <PackageId>SCIRE.Foundation.Abstractions</PackageId>
-        <Version>0.1.0-alpha.1</Version>
+        <Version>0.1.0-alpha.2</Version>
         <Authors>net.cscience</Authors>
         <Description>Shared abstractions for SCIRE feature-based applications.</Description>
 
@@ -19,9 +19,5 @@
         <IncludeSymbols>true</IncludeSymbols>
         <SymbolPackageFormat>snupkg</SymbolPackageFormat>
     </PropertyGroup>
-
-    <ItemGroup>
-      <Content Include=".github\workflows\publish-nuget.yml" />
-    </ItemGroup>
     
 </Project>

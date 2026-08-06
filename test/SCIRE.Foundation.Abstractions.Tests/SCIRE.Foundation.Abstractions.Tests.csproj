@@ -19,4 +19,8 @@
         <Using Include="Xunit"/>
     </ItemGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\..\src\SCIRE.Foundation.Abstractions\SCIRE.Foundation.Abstractions.csproj" />
+    </ItemGroup>
+
 </Project>

@@ -15,23 +15,33 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout
-        uses: actions/checkout@v7
+      - name: Checkout repository
+        uses: actions/checkout@v6
 
       - name: Setup .NET
         uses: actions/setup-dotnet@v6
         with:
           dotnet-version: "10.0.x"
 
+      - name: Show repository structure
+        run: find . -maxdepth 4 -type f | sort
+
       - name: Restore
-        run: dotnet restore SCIRE.Foundation.slnx
+        run: >
+          dotnet restore
+          tests/SCIRE.Foundation.Abstractions.Tests/SCIRE.Foundation.Abstractions.Tests.csproj
 
       - name: Test
-        run: dotnet test SCIRE.Foundation.slnx --configuration Release --no-restore
+        run: >
+          dotnet test
+          tests/SCIRE.Foundation.Abstractions.Tests/SCIRE.Foundation.Abstractions.Tests.csproj
+          --configuration Release
+          --no-restore
 
       - name: Pack
         run: >
-          dotnet pack src/SCIRE.Foundation.Abstractions
+          dotnet pack
+          src/SCIRE.Foundation.Abstractions/SCIRE.Foundation.Abstractions.csproj
           --configuration Release
           --no-restore
           --output artifacts/packages
@@ -46,7 +56,7 @@ jobs:
           --name github
           "https://nuget.pkg.github.com/${{ github.repository_owner }}/index.json"
 
-      - name: Publish
+      - name: Publish package
         run: >
           dotnet nuget push "artifacts/packages/*.nupkg"
           --source github
