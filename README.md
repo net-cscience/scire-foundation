@@ -1,28 +1,71 @@
-## Consuming the NuGet Package
+# SCIRE Foundation
 
-`SCIRE.Foundation.Abstractions` is published through the `net-cscience` GitHub Packages feed.
+Shared foundation packages for SCIRE-based, feature-oriented applications.
 
-> GitHub Packages requires authentication for NuGet package downloads, even when the package is public.
+The repository provides stable contracts and runtime infrastructure for contexts, coordinates, schemas, features, plugins, configuration, and application composition.
 
-### 1. Create a GitHub access token
+## Packages
 
-Create a **Personal Access Token (classic)** in your personal GitHub account:
+| Package                                 | Purpose                                                                  |
+| --------------------------------------- | ------------------------------------------------------------------------ |
+| `SCIRE.Foundation.Abstractions`         | Core contracts and shared domain abstractions                            |
+| `SCIRE.Foundation.Plugins.Abstractions` | Plugin descriptions and plugin-facing contracts                          |
+| `SCIRE.Foundation.Runtime`              | Plugin loading, configuration, registration, and application composition |
 
-1. Open **GitHub → Settings**
-2. Open **Developer settings**
-3. Select **Personal access tokens → Tokens (classic)**
-4. Select **Generate new token (classic)**
-5. Enable the following scope:
+Only `SCIRE.Foundation.Abstractions` is currently implemented.
+
+## Structure
+
+```text
+scire-foundation/
+├── src/
+│   ├── SCIRE.Foundation.Abstractions/
+│   ├── SCIRE.Foundation.Plugins.Abstractions/
+│   └── SCIRE.Foundation.Runtime/
+├── tests/
+│   ├── SCIRE.Foundation.Abstractions.Tests/
+│   ├── SCIRE.Foundation.Plugins.Abstractions.Tests/
+│   └── SCIRE.Foundation.Runtime.Tests/
+├── docs/
+│   └── context/
+└── SCIRE.Foundation.slnx
+```
+
+## Development
+
+Requirements:
+
+* .NET 10 SDK
+
+Build and test:
+
+```shell
+dotnet restore
+dotnet build --configuration Release
+dotnet test --configuration Release
+```
+
+Create the NuGet package:
+
+```shell
+dotnet pack src/SCIRE.Foundation.Abstractions \
+    --configuration Release \
+    --output artifacts/packages
+```
+
+## Consuming the Package
+
+Packages are published through the `net-cscience` GitHub Packages feed.
+
+GitHub requires authentication for NuGet downloads, including public packages.
+
+Create a GitHub Personal Access Token (classic) with:
 
 ```text
 read:packages
 ```
 
-Copy the token when it is generated. GitHub displays it only once.
-
-### 2. Register the GitHub Packages feed
-
-Run the following commands in PowerShell:
+Register the feed:
 
 ```powershell
 $env:GITHUB_PACKAGES_TOKEN = "<YOUR_CLASSIC_PAT>"
@@ -30,95 +73,21 @@ $env:GITHUB_PACKAGES_TOKEN = "<YOUR_CLASSIC_PAT>"
 dotnet nuget add source `
     "https://nuget.pkg.github.com/net-cscience/index.json" `
     --name "scire-github" `
-    --username "net-cscience-raphael" `
+    --username "<YOUR_GITHUB_USERNAME>" `
     --password $env:GITHUB_PACKAGES_TOKEN `
     --valid-authentication-types basic
 ```
 
-The feed belongs to the `net-cscience` organization, while authentication uses the personal GitHub account `net-cscience-raphael`.
-
-Verify the registered source:
+Add the package:
 
 ```powershell
-dotnet nuget list source
-```
-
-The output should contain:
-
-```text
-scire-github [Enabled]
-https://nuget.pkg.github.com/net-cscience/index.json
-```
-
-When the source already exists, update its credentials instead:
-
-```powershell
-$env:GITHUB_PACKAGES_TOKEN = "<YOUR_CLASSIC_PAT>"
-
-dotnet nuget update source "scire-github" `
-    --source "https://nuget.pkg.github.com/net-cscience/index.json" `
-    --username "net-cscience-raphael" `
-    --password $env:GITHUB_PACKAGES_TOKEN `
-    --valid-authentication-types basic
-```
-
-### 3. Add the package
-
-Add the package to a project:
-
-```powershell
-dotnet add `
-    path/to/YourProject.csproj `
+dotnet add path/to/YourProject.csproj `
     package SCIRE.Foundation.Abstractions `
     --version 0.1.0-alpha.2
 ```
 
-For example:
+Never commit access tokens to the repository.
 
-```powershell
-dotnet add `
-    src/LectureCatalogInsights.Core/LectureCatalogInsights.Core.csproj `
-    package SCIRE.Foundation.Abstractions `
-    --version 0.1.0-alpha.2
-```
+## Status
 
-This creates the following project reference:
-
-```xml
-<ItemGroup>
-    <PackageReference Include="SCIRE.Foundation.Abstractions"
-                      Version="0.1.0-alpha.2"/>
-</ItemGroup>
-```
-
-### 4. Restore and verify
-
-```powershell
-dotnet restore
-dotnet build
-```
-
-The temporary package test API can be called with:
-
-```csharp
-using SCIRE.Foundation.Abstractions.Diagnostics;
-
-var message = FoundationHelloWorld.GetMessage();
-Console.WriteLine(message);
-```
-
-Expected output:
-
-```text
-Hello from SCIRE.Foundation.Abstractions
-```
-
-### Security
-
-Never commit a GitHub access token to the repository, project files, workflow files, or a shared `NuGet.config`.
-
-The environment variable used above exists only for the current PowerShell session:
-
-```powershell
-$env:GITHUB_PACKAGES_TOKEN = "<YOUR_CLASSIC_PAT>"
-```
+The project is in early development. Package APIs may change before the first stable release.
