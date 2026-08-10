@@ -30,12 +30,12 @@ jobs:
         run: echo "Publishing version $PACKAGE_VERSION"
 
       - name: Restore
-        run: dotnet restore SCIRE.Foundation.slnx
+        run: dotnet restore SCIRE.Foundation.sln
 
       - name: Test
         run: >
           dotnet test
-          SCIRE.Foundation.slnx
+          SCIRE.Foundation.sln
           --configuration Release
           --no-restore
 
