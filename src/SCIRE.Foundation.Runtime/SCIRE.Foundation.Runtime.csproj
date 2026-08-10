@@ -7,7 +7,7 @@
 
         <IsPackable>true</IsPackable>
         <PackageId>SCIRE.Foundation.Runtime</PackageId>
-        <Version>0.1.0-alpha.5</Version>
+        <Version>0.1.0-alpha.1</Version>
         <Authors>net.cscience</Authors>
         <Description>Runtime components for SCIRE Foundation applications.</Description>
 
