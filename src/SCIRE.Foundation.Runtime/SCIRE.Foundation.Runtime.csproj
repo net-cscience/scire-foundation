@@ -6,18 +6,21 @@
         <Nullable>enable</Nullable>
 
         <IsPackable>true</IsPackable>
-        <PackageId>SCIRE.Foundation.Abstractions</PackageId>
+        <PackageId>SCIRE.Foundation.Runtime</PackageId>
         <Version>0.1.0-alpha.3</Version>
         <Authors>net.cscience</Authors>
-        <Description>Shared abstractions for SCIRE feature-based applications.</Description>
+        <Description>Runtime components for SCIRE Foundation applications.</Description>
 
         <RepositoryType>git</RepositoryType>
         <RepositoryUrl>https://github.com/net-cscience/scire-foundation</RepositoryUrl>
-
 
         <GenerateDocumentationFile>true</GenerateDocumentationFile>
         <IncludeSymbols>true</IncludeSymbols>
         <SymbolPackageFormat>snupkg</SymbolPackageFormat>
     </PropertyGroup>
-    
+
+    <ItemGroup>
+        <ProjectReference Include="..\SCIRE.Foundation.Abstractions\SCIRE.Foundation.Abstractions.csproj" />
+    </ItemGroup>
+
 </Project>
