@@ -15,7 +15,7 @@ public abstract class ContextBase : IContext
     public string Name { get; set; } = null!;
 
     /// <inheritdoc />
-    public abstract IEnumerable<ISource> AvailableSources { get; }
+    public abstract ISources AvailableSources { get; }
 
     /// <inheritdoc />
     public abstract IEnumerable<IFeatureDescription> AvailableFeatures { get; }

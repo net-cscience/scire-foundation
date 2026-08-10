@@ -1,3 +1,5 @@
+using SCIRE.Foundation.Abstractions.Identity;
+
 namespace SCIRE.Foundation.Abstractions.Features;
 
 /// <summary>
@@ -7,6 +9,7 @@ namespace SCIRE.Foundation.Abstractions.Features;
 /// A feature description represents a selectable capability and its associated metadata,
 /// not an executed feature or a persisted feature result.
 /// </remarks>
-public interface IFeatureDescription
+public interface IFeatureDescription : IIdentifiable
 {
+
 }

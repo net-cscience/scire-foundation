@@ -17,7 +17,7 @@ public interface IContext : IIdentifiable
     /// <summary>
     /// Sources that define the material available within this context.
     /// </summary>
-    IEnumerable<ISource> AvailableSources { get; }
+    ISources AvailableSources { get; }
 
     /// <summary>
     /// Feature capabilities that can be selected for processing within this context.
