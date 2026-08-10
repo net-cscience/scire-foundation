@@ -10,6 +10,9 @@ permissions:
   contents: read
   packages: write
 
+env:
+  PACKAGE_VERSION: 0.1.0-alpha.${{ github.run_number }}.${{ github.run_attempt }}
+
 jobs:
   publish:
     runs-on: ubuntu-latest
@@ -23,22 +26,20 @@ jobs:
         with:
           dotnet-version: "10.0.x"
 
-      - name: Show repository structure
-        run: find . -maxdepth 4 -type f | sort
+      - name: Show package version
+        run: echo "Publishing version $PACKAGE_VERSION"
 
       - name: Restore
-        run: >
-          dotnet restore
-          tests/SCIRE.Foundation.Abstractions.Tests/SCIRE.Foundation.Abstractions.Tests.csproj
+        run: dotnet restore SCIRE.Foundation.slnx
 
       - name: Test
         run: >
           dotnet test
-          tests/SCIRE.Foundation.Abstractions.Tests/SCIRE.Foundation.Abstractions.Tests.csproj
+          SCIRE.Foundation.slnx
           --configuration Release
           --no-restore
 
-      - name: Pack
+      - name: Pack Abstractions
         run: >
           dotnet pack
           src/SCIRE.Foundation.Abstractions/SCIRE.Foundation.Abstractions.csproj
@@ -46,6 +47,17 @@ jobs:
           --no-restore
           --output artifacts/packages
           -p:ContinuousIntegrationBuild=true
+          -p:PackageVersion=$PACKAGE_VERSION
+
+      - name: Pack Runtime
+        run: >
+          dotnet pack
+          src/SCIRE.Foundation.Runtime/SCIRE.Foundation.Runtime.csproj
+          --configuration Release
+          --no-restore
+          --output artifacts/packages
+          -p:ContinuousIntegrationBuild=true
+          -p:PackageVersion=$PACKAGE_VERSION
 
       - name: Configure GitHub Packages
         run: >
@@ -56,7 +68,7 @@ jobs:
           --name github
           "https://nuget.pkg.github.com/${{ github.repository_owner }}/index.json"
 
-      - name: Publish package
+      - name: Publish packages
         run: >
           dotnet nuget push "artifacts/packages/*.nupkg"
           --source github
