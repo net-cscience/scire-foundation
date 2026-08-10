@@ -1,11 +1,12 @@
 using SCIRE.Foundation.Abstractions.Features;
 using SCIRE.Foundation.Abstractions.Identity;
+using SCIRE.Foundation.Abstractions.Schema;
 using SCIRE.Foundation.Abstractions.Sources;
 
 namespace SCIRE.Foundation.Abstractions.Context;
 
 /// <summary>
-/// Describes the universe of material and feature capabilities available within a SCIRE application.
+/// Describes the universe of material, feature capabilities, and processing configurations available within a SCIRE application.
 /// </summary>
 public interface IContext : IIdentifiable
 {
@@ -15,7 +16,7 @@ public interface IContext : IIdentifiable
     string Name { get; }
 
     /// <summary>
-    /// Sources that define the material available within this context.
+    /// Describes the sources from which concrete processing sources can be resolved for this context.
     /// </summary>
     ISources AvailableSources { get; }
 
@@ -24,4 +25,12 @@ public interface IContext : IIdentifiable
     /// </summary>
     IEnumerable<IFeatureDescription> AvailableFeatures { get; }
 
+    /// <summary>
+    /// Processing configurations defined against this context and available for selection.
+    /// </summary>
+    /// <remarks>
+    /// Availability does not imply that a schema is currently selected.
+    /// Each schema references this context as the universe from which its sources and features are selected.
+    /// </remarks>
+    IEnumerable<ISchema> AvailableSchemas { get; }
 }

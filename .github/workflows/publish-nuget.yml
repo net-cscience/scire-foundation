@@ -1,10 +1,10 @@
-name: Publish NuGet Package
+name: Publish NuGet Package Alpha Channel
 
 on:
-  workflow_dispatch:
   push:
-    tags:
-      - "v*"
+    branches:
+      - main
+      - develop
 
 permissions:
   contents: read

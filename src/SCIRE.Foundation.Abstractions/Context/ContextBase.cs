@@ -1,4 +1,5 @@
 using SCIRE.Foundation.Abstractions.Features;
+using SCIRE.Foundation.Abstractions.Schema;
 using SCIRE.Foundation.Abstractions.Sources;
 
 namespace SCIRE.Foundation.Abstractions.Context;
@@ -8,6 +9,7 @@ namespace SCIRE.Foundation.Abstractions.Context;
 /// </summary>
 public abstract class ContextBase : IContext
 {
+
     /// <inheritdoc />
     public Guid Id { get; set; }
 
@@ -19,4 +21,8 @@ public abstract class ContextBase : IContext
 
     /// <inheritdoc />
     public abstract IEnumerable<IFeatureDescription> AvailableFeatures { get; }
+
+    /// <inheritdoc />
+    public abstract IEnumerable<ISchema> AvailableSchemas { get; }
+
 }
