@@ -8,5 +8,5 @@ public interface IIdentifiable
     /// <summary>
     /// Stable identifier used to reference this object independently of its concrete representation.
     /// </summary>
-    Guid Id { get; set; }
+    Guid Id { get; }
 }
