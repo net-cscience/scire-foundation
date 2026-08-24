@@ -6,7 +6,7 @@ namespace SCIRE.Foundation.Abstractions.Identity;
 public interface IIdentifiable
 {
     /// <summary>
-    /// Stable identifier used to reference this object independently of its concrete representation.
+    /// Stable identifier used to reference the object independently of its concrete representation.
     /// </summary>
     Guid Id { get; }
 }
