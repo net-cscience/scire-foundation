@@ -4,7 +4,7 @@ using SCIRE.Foundation.Abstractions.Identity;
 namespace SCIRE.Foundation.Abstractions.Coordinates;
 
 /// <summary>
-/// Represents an identifiable point within one SCIRE context.
+/// Represents an identifiable point within one SCIRE Context.
 /// </summary>
 /// <remarks>
 /// The concrete Coordinate type defines the structure of the referenced point.
@@ -13,7 +13,12 @@ namespace SCIRE.Foundation.Abstractions.Coordinates;
 public interface ICoordinate : IIdentifiable
 {
     /// <summary>
-    /// Context whose universe gives this Coordinate its meaning.
+    /// Gets the stable identifier of the Context containing this Coordinate.
+    /// </summary>
+    Guid ContextId { get; }
+
+    /// <summary>
+    /// Gets the Context whose universe gives this Coordinate its meaning.
     /// </summary>
     IContext Context { get; }
 }
