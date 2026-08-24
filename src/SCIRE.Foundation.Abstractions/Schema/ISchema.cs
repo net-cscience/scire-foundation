@@ -5,6 +5,20 @@ using SCIRE.Foundation.Abstractions.Sources;
 
 namespace SCIRE.Foundation.Abstractions.Schema;
 
+
+/// <summary>
+/// Schema defined against a specific Context type.
+/// </summary>
+/// <typeparam name="TContext">Concrete Context type this Schema belongs to.</typeparam>
+public interface ISchema<out TContext> : ISchema
+    where TContext : IContext
+{
+    /// <summary>
+    /// Gets the concrete Context this Schema belongs to.
+    /// </summary>
+    new TContext Context { get; }
+}
+
 /// <summary>
 /// Describes a processing configuration that selects sources and feature capabilities from one SCIRE context.
 /// </summary>
