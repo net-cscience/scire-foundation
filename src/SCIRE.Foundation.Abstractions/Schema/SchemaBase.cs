@@ -8,7 +8,7 @@ namespace SCIRE.Foundation.Abstractions.Schema;
 /// Base implementation for schemas defining a processing configuration over one SCIRE context.
 /// </summary>
 /// <typeparam name="TContext">Concrete Context type this Schema belongs to.</typeparam>
-public abstract class SchemaBase<TContext> : ISchema
+public abstract class SchemaBase<TContext> : ISchema<TContext>
     where TContext : IContext
 {
     /// <summary>
@@ -36,21 +36,32 @@ public abstract class SchemaBase<TContext> : ISchema
         this.Context = context;
     }
 
+    /// <inheritdoc />
     public Guid Id { get; set; }
 
+    /// <inheritdoc />
     public string Name { get; }
 
+    /// <summary>
+    /// Gets the concrete Context this Schema belongs to.
+    /// </summary>
     public TContext Context { get; }
 
+    /// <inheritdoc />
     IContext ISchema.Context => this.Context;
 
+    /// <inheritdoc />
     public abstract IEnumerable<ISource> SelectedSources { get; }
 
+    /// <inheritdoc />
     public abstract IEnumerable<IFeatureDescription> SelectedFeatures { get; }
 
+    /// <inheritdoc />
     public abstract IEnumerable<ProcessingState> ProcessingStates { get; }
 
+    /// <inheritdoc />
     public abstract ProcessingStateCreationMode StateCreationMode { get; }
 
+    /// <inheritdoc />
     public abstract ProcessingReservationMode ReservationMode { get; }
 }
