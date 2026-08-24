@@ -12,6 +12,13 @@ public abstract class ContextBase : IContext
     private readonly List<ISchema> availableSchemas = [];
 
     /// <summary>
+    /// Creates an empty Context for persistence materialization.
+    /// </summary>
+    protected ContextBase()
+    {
+    }
+
+    /// <summary>
     /// Creates a Context with stable identity and a human-readable name.
     /// </summary>
     /// <param name="id">Stable identity used to reference the Context.</param>
