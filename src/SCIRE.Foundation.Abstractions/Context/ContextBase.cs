@@ -31,10 +31,10 @@ public abstract class ContextBase : IContext
     }
 
     /// <inheritdoc />
-    public Guid Id { get; }
+    public Guid Id { get; protected set; }
 
     /// <inheritdoc />
-    public string Name { get; }
+    public string Name { get; protected set; } = string.Empty;
 
     /// <inheritdoc />
     public abstract ISources AvailableSources { get; }

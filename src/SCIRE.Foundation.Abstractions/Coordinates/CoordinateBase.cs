@@ -2,9 +2,6 @@ using SCIRE.Foundation.Abstractions.Context;
 
 namespace SCIRE.Foundation.Abstractions.Coordinates;
 
-/// <summary>
-/// Base implementation for a persisted Coordinate belonging to exactly one Context.
-/// </summary>
 public abstract class CoordinateBase : ICoordinate
 {
     /// <summary>
@@ -18,9 +15,9 @@ public abstract class CoordinateBase : ICoordinate
     /// Creates a Coordinate belonging to the provided Context.
     /// </summary>
     /// <param name="id">Stable identity used to reference the Coordinate.</param>
-    /// <param name="context">Context in which the Coordinate has meaning.</param>
+    /// <param name="context">Context whose universe gives this Coordinate its meaning.</param>
     /// <exception cref="ArgumentException">
-    /// Thrown when <paramref name="id"/> is empty or the Context has no persisted identity.
+    /// Thrown when <paramref name="id"/> is empty or the Context has no stable identity.
     /// </exception>
     /// <exception cref="ArgumentNullException">
     /// Thrown when <paramref name="context"/> is <see langword="null"/>.
@@ -41,17 +38,15 @@ public abstract class CoordinateBase : ICoordinate
     }
 
     /// <inheritdoc />
-    public Guid Id { get; set; }
+    public Guid Id { get; protected set; }
 
-    /// <summary>
-    /// Gets or sets the identifier of the Context containing this Coordinate.
-    /// </summary>
-    public Guid ContextId { get; set; }
+    /// <inheritdoc />
+    public Guid ContextId { get; protected set; }
 
     /// <summary>
     /// Gets or sets the Context containing this Coordinate.
     /// </summary>
-    public ContextBase Context { get; set; } = null!;
+    public ContextBase Context { get; protected set; } = null!;
 
     /// <inheritdoc />
     IContext ICoordinate.Context => this.Context;
