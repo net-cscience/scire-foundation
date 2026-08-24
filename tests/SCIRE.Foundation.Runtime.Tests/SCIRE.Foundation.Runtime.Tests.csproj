@@ -26,10 +26,4 @@
       <ProjectReference Include="..\..\src\SCIRE.Foundation.Runtime\SCIRE.Foundation.Runtime.csproj" />
     </ItemGroup>
 
-    <ItemGroup>
-      <None Update="appsettings.json">
-        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      </None>
-    </ItemGroup>
-
 </Project>
