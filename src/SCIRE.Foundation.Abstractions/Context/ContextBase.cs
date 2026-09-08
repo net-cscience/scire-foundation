@@ -9,7 +9,7 @@ namespace SCIRE.Foundation.Abstractions.Context;
 /// </summary>
 public abstract class ContextBase : IContext
 {
-    private readonly List<ISchema> availableSchemas = [];
+    private readonly List<ISchema> _availableSchemas = [];
 
     /// <summary>
     /// Creates an empty Context for persistence materialization.
@@ -50,7 +50,7 @@ public abstract class ContextBase : IContext
     public abstract IEnumerable<IFeatureDescription> AvailableFeatures { get; }
 
     /// <inheritdoc />
-    public IEnumerable<ISchema> AvailableSchemas => this.availableSchemas;
+    public IEnumerable<ISchema> AvailableSchemas => this._availableSchemas;
 
     /// <summary>
     /// Adds a Schema that is available within this Context.
@@ -69,9 +69,9 @@ public abstract class ContextBase : IContext
         if (schema.Context.Id != this.Id)
             throw new ArgumentException("The schema must belong to this context.", nameof(schema));
 
-        if (this.availableSchemas.Any(candidate => candidate.Id == schema.Id))
+        if (this._availableSchemas.Any(candidate => candidate.Id == schema.Id))
             throw new ArgumentException($"Schema '{schema.Id}' is already available in this context.", nameof(schema));
 
-        this.availableSchemas.Add(schema);
+        this._availableSchemas.Add(schema);
     }
 }
