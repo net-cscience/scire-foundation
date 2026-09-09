@@ -20,7 +20,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\SCIRE.Foundation.Service.Evaluation\SCIRE.Foundation.Service.Evaluation.csproj" />
+      <ProjectReference Include="..\..\src\SCIRE.Foundation.Service.Evaluation\SCIRE.Foundation.Service.Evaluation.csproj" />
     </ItemGroup>
 
 </Project>
