@@ -59,6 +59,17 @@ jobs:
           -p:ContinuousIntegrationBuild=true
           -p:PackageVersion=$PACKAGE_VERSION
 
+
+      - name: Pack Evaluation DRES
+        run: >
+          dotnet pack
+          src/SCIRE.Foundation.Service.Evaluation.Dres/SCIRE.Foundation.Service.Evaluation.Dres.csproj
+          --configuration Release
+          --no-restore
+          --output artifacts/packages
+          -p:ContinuousIntegrationBuild=true
+          -p:PackageVersion=$PACKAGE_VERSION
+
       - name: Configure GitHub Packages
         run: >
           dotnet nuget add source
