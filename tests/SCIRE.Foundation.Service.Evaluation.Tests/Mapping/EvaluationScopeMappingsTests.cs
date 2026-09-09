@@ -1,5 +1,6 @@
 using SCIRE.Foundation.Service.Evaluation.Mapping;
 using SCIRE.Foundation.Service.Evaluation.Submission;
+using Xunit;
 
 namespace SCIRE.Foundation.Service.Evaluation.Tests.Mapping;
 

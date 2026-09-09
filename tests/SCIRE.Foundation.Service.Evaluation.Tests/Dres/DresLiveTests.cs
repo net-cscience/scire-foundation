@@ -1,6 +1,10 @@
+using System;
+using System.Net.Http;
+using System.Threading.Tasks;
 using SCIRE.Foundation.Service.Evaluation.Dres;
 using SCIRE.Foundation.Service.Evaluation.Mapping;
 using SCIRE.Foundation.Service.Evaluation.Tests.Support;
+using Xunit;
 
 namespace SCIRE.Foundation.Service.Evaluation.Tests.Dres;
 
