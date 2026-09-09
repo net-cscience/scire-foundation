@@ -8,6 +8,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SCIRE.Foundation.Runtime", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SCIRE.Foundation.Runtime.Tests", "tests\SCIRE.Foundation.Runtime.Tests\SCIRE.Foundation.Runtime.Tests.csproj", "{A252F583-6393-4EEE-BB7B-A02CA64095D5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SCIRE.Foundation.Service.Evaluation.Tests", "SCIRE.Foundation.Service.Evaluation.Tests\SCIRE.Foundation.Service.Evaluation.Tests.csproj", "{3D39B9F0-C26A-4D8B-BB04-B04F64BA442C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SCIRE.Foundation.Service.Evaluation", "SCIRE.Foundation.Service.Evaluation\SCIRE.Foundation.Service.Evaluation.csproj", "{ACD835DF-7FF5-4F33-9163-F7C57CB2ACD7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,5 +34,13 @@ Global
 		{A252F583-6393-4EEE-BB7B-A02CA64095D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A252F583-6393-4EEE-BB7B-A02CA64095D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A252F583-6393-4EEE-BB7B-A02CA64095D5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3D39B9F0-C26A-4D8B-BB04-B04F64BA442C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3D39B9F0-C26A-4D8B-BB04-B04F64BA442C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3D39B9F0-C26A-4D8B-BB04-B04F64BA442C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3D39B9F0-C26A-4D8B-BB04-B04F64BA442C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ACD835DF-7FF5-4F33-9163-F7C57CB2ACD7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ACD835DF-7FF5-4F33-9163-F7C57CB2ACD7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ACD835DF-7FF5-4F33-9163-F7C57CB2ACD7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ACD835DF-7FF5-4F33-9163-F7C57CB2ACD7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

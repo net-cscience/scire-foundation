@@ -1,0 +1,5 @@
+$env:DRES_ENDPOINT = "http://localhost:8080/"
+$env:DRES_USERNAME = "user"
+$env:DRES_PASSWORD = "password"
+$env:DRES_EVALUATION_ID = "..."
+dotnet test --filter "Category=DresLive"
