@@ -63,7 +63,7 @@ jobs:
       - name: Pack Evaluation DRES
         run: >
           dotnet pack
-          src/SCIRE.Foundation.Service.Evaluation.Dres/SCIRE.Foundation.Service.Evaluation.Dres.csproj
+          src/SCIRE.Foundation.Service.Evaluation.Dres/SCIRE.Foundation.Service.Evaluation.csproj
           --configuration Release
           --no-restore
           --output artifacts/packages
