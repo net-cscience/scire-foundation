@@ -6,7 +6,7 @@ internal sealed record DresApiClientEvaluationInfo(
     string Type,
     string Status,
     string TemplateId,
-    string? TemplateDescription,
     IReadOnlyList<string> Teams,
-    IReadOnlyList<DresApiClientTaskTemplateInfo> TaskTemplates
+    IReadOnlyList<DresApiClientTaskTemplateInfo> TaskTemplates,
+    string? TemplateDescription = null
 );

@@ -12,7 +12,7 @@ using Xunit;
 
 namespace SCIRE.Foundation.Service.Evaluation.Tests.Dres;
 
-public sealed class DresEvaluationServiceTests
+public sealed partial class DresEvaluationServiceTests
 {
     [Fact]
     public async Task LoginAsync_AuthenticatesAndStoresSession()
@@ -97,7 +97,9 @@ public sealed class DresEvaluationServiceTests
         Assert.Equal("ACTIVE", state.EvaluationStatus);
         Assert.Equal("task-1", state.TaskId);
         Assert.Equal("RUNNING", state.TaskStatus);
-        Assert.Equal(42000, state.TimeLeft);
+        Assert.Equal(42, state.TimeLeft);
+        Assert.Equal(TimeSpan.FromSeconds(42), state.RemainingTime);
+        Assert.Equal("?session=session-123", handler.Requests.Last().Uri.Query);
     }
 
 
@@ -151,6 +153,8 @@ public sealed class DresEvaluationServiceTests
 
         Assert.Equal("DRES", metadata.Provider);
         Assert.Equal(123456789L, metadata.ServerTimestamp);
+        Assert.Equal("2.0.4", metadata.Version);
+        Assert.Equal(56789L, metadata.ServerUptimeMilliseconds);
         Assert.Equal(new Uri("https://dres.test/"), metadata.Endpoint);
     }
 
@@ -220,6 +224,8 @@ public sealed class DresEvaluationServiceTests
 
     private static HttpResponseMessage DefaultResponse(RecordedHttpRequest request)
     {
+        if (request.Uri.AbsolutePath is not ("/api/v2/login" or "/api/v2/status/time" or "/api/v2/status/info") && request.Uri.Query != "?session=session-123")
+            return StubHttpMessageHandler.Json("""{"status":false,"description":"Missing session."}""", HttpStatusCode.Unauthorized);
         return request.Uri.AbsolutePath switch
         {
             "/api/v2/login" => StubHttpMessageHandler.Json(
@@ -231,6 +237,12 @@ public sealed class DresEvaluationServiceTests
                   "sessionId": "session-123"
                 }
                 """),
+
+            "/api/v2/user" => StubHttpMessageHandler.Json("""{"id":"user-1","username":"test-user","role":"PARTICIPANT","sessionId":"session-123"}"""),
+
+            "/api/v2/client/evaluation/currentTask/evaluation-1" => StubHttpMessageHandler.Json("""{"name":"KIS","taskGroup":"KIS","taskType":"KIS","duration":300}"""),
+
+            "/api/v2/status/info" => StubHttpMessageHandler.Json("""{"version":"2.0.4","startTime":123400000,"uptime":56789}"""),
 
             "/api/v2/logout" => StubHttpMessageHandler.Json(
                 """{"status":true,"description":"Logged out."}"""),
@@ -266,8 +278,8 @@ public sealed class DresEvaluationServiceTests
                   "taskId": "task-1",
                   "taskStatus": "RUNNING",
                   "taskTemplateId": "template-1",
-                  "timeLeft": 42000,
-                  "timeElapsed": 18000
+                  "timeLeft": 42,
+                  "timeElapsed": 18
                 }
                 """),
 

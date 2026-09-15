@@ -4,5 +4,5 @@ internal sealed record DresApiClientTaskTemplateInfo(
     string Name,
     string TaskGroup,
     string TaskType,
-    long? Duration
+    long? Duration = null
 );
