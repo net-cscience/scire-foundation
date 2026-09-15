@@ -2,6 +2,7 @@
 <RunSettings>
   <RunConfiguration>
     <EnvironmentVariables>
+      <DRES_LIVE_TESTING>false</DRES_LIVE_TESTING>
       <DRES_ENDPOINT>http://10.34.64.205:8080</DRES_ENDPOINT>
       <DRES_USERNAME>user1</DRES_USERNAME>
       <DRES_PASSWORD>password1</DRES_PASSWORD>
