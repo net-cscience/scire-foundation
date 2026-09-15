@@ -5,8 +5,12 @@ namespace SCIRE.Foundation.Service.Evaluation.Tests.Support;
 
 internal sealed class DresLiveFactAttribute : FactAttribute
 {
-    public DresLiveFactAttribute()
+    public DresLiveFactAttribute(bool force = false)
     {
+        if (force)
+        {
+            return;
+        }
         if (string.IsNullOrWhiteSpace(Environment.GetEnvironmentVariable("DRES_ENDPOINT")) ||
             string.IsNullOrWhiteSpace(Environment.GetEnvironmentVariable("DRES_USERNAME")) ||
             string.IsNullOrWhiteSpace(Environment.GetEnvironmentVariable("DRES_PASSWORD")))

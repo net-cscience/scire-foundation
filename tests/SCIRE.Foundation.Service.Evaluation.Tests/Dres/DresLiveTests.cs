@@ -10,14 +10,14 @@ namespace SCIRE.Foundation.Service.Evaluation.Tests.Dres;
 
 public sealed class DresLiveTests
 {
-    [DresLiveFact]
+    [DresLiveFact(force: true)]
     [Trait("Category", "DresLive")]
     public async Task LiveDres_SmokeTest()
     {
-        var endpoint = new Uri(Environment.GetEnvironmentVariable("DRES_ENDPOINT")!);
-        var username = Environment.GetEnvironmentVariable("DRES_USERNAME")!;
-        var password = Environment.GetEnvironmentVariable("DRES_PASSWORD")!;
-        var evaluationId = Environment.GetEnvironmentVariable("DRES_EVALUATION_ID");
+        var endpoint = new Uri(Environment.GetEnvironmentVariable("DRES_ENDPOINT")??"http://10.34.64.205:8080");
+        var username = Environment.GetEnvironmentVariable("DRES_USERNAME")??"user1";
+        var password = Environment.GetEnvironmentVariable("DRES_PASSWORD")??"password1";
+        var evaluationId = Environment.GetEnvironmentVariable("DRES_EVALUATION_ID")??"5415a4b5";
 
         using var client = new HttpClient();
 
