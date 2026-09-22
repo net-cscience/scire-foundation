@@ -6,6 +6,10 @@
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=1f769d1a_002D8bf5_002D48f4_002Da020_002Ddaf0b072cbbc/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="TestConfig" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
   &lt;TestAncestor&gt;&#xD;
     &lt;TestId&gt;xUnit::3D39B9F0-C26A-4D8B-BB04-B04F64BA442C::net10.0::SCIRE.Foundation.Service.Evaluation.Tests.Dres.DresLiveTests&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::A252F583-6393-4EEE-BB7B-A02CA64095D5::net10.0::SCIRE.Foundation.Runtime.Tests.Configuration.JsonConfigurationPersitanceTests.PersitsBasicConfiguration&lt;/TestId&gt;&#xD;
   &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=58c56b00_002Df81e_002D48fd_002Da74f_002Dc8e84271fcf4/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="Continuous Testing" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;Solution /&gt;&#xD;
 &lt;/SessionState&gt;</s:String>
 	<s:String x:Key="/Default/Housekeeping/UnitTestingMru/UnitTestRunner/RunConfigurationFilename/@EntryValue">D:\myRepo\net.cscience\scire-foundation\tests\SCIRE.Foundation.Service.Evaluation.Tests\.runsettings</s:String></wpf:ResourceDictionary>
