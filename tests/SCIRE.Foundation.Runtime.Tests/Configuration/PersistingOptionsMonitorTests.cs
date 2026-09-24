@@ -17,8 +17,8 @@ public sealed class PersistingOptionsMonitorTests
         try
         {
             var store = new JsonConfigurationStore<TestConfiguration>(directory);
-            var validator = new ValidateOptions<TestConfiguration>(null, value => value.Display.ResultsPerPage > 0, "ResultsPerPage must be positive.");
 
+            var validator = new DataAnnotationValidateOptions<TestConfiguration>(Options.DefaultName);
             using var monitor = await PersistingOptionsMonitor<TestConfiguration>.CreateAsync(store, "display", () => TestConfiguration.Default, [validator]);
 
             IOptionsMonitor<TestConfiguration> options = monitor;
