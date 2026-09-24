@@ -1,24 +1,18 @@
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Options;
 
 namespace SCIRE.Foundation.Abstractions.Config;
 
-/// <summary>Provides active options, isolated editing, and validated storage reload.</summary>
+/// <summary>Provides independent reader values and persistence for one configuration.</summary>
+/// <remarks>Only the default options name is supported. CurrentValue returns a reader copy; use LoadAsync to obtain an editable instance.</remarks>
 public interface IPersistingOptionsMonitor<T> : IOptionsMonitor<T> where T : class, IPersistableConfig
 {
-    /// <summary>Gets the default registration's read-only effective configuration section.</summary>
-    IConfiguration Configuration { get; }
+    /// <summary>Loads an independent editable instance without changing the published value.</summary>
+    Task<T> LoadAsync(CancellationToken cancellationToken = default);
 
-    /// <summary>Opens an independent draft from writable storage, excluding deployment overrides.</summary>
-    /// <remarks>Null or empty selects the default registration.</remarks>
-    Task<IConfigurationEdit<T>> BeginEditAsync(string? name = null, CancellationToken cancellationToken = default);
+    /// <summary>Validates, conditionally saves, and publishes an instance loaded by this monitor.</summary>
+    /// <remarks>Do not modify or otherwise use the instance until saving finishes. Successful storage acceptance refreshes its private baseline, allowing another save.</remarks>
+    Task SaveAsync(T value, CancellationToken cancellationToken = default);
 
-    /// <summary>Reloads and validates the default registration.</summary>
+    /// <summary>Reloads storage and publishes it only if validation succeeds.</summary>
     Task ReloadAsync(CancellationToken cancellationToken = default);
-
-    /// <summary>Gets the selected registration's read-only effective configuration section.</summary>
-    IConfiguration GetConfiguration(string? name);
-
-    /// <summary>Reloads and validates the selected named registration.</summary>
-    Task ReloadAsync(string name, CancellationToken cancellationToken = default);
 }
