@@ -1,4 +1,4 @@
-using SCIRE.Foundation.Abstractions.Config;
+using SCIRE.Foundation.Abstractions.Configuration;
 using SCIRE.Foundation.Runtime.Configuration.Json;
 using Xunit;
 

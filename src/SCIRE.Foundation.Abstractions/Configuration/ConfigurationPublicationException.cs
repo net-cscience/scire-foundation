@@ -1,4 +1,4 @@
-namespace SCIRE.Foundation.Abstractions.Config;
+namespace SCIRE.Foundation.Abstractions.Configuration;
 
 /// <summary>Reports a publication or notification failure after an accepted operation.</summary>
 public sealed class ConfigurationPublicationException : Exception

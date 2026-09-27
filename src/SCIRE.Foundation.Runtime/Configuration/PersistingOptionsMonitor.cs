@@ -1,8 +1,8 @@
 using System.Runtime.CompilerServices;
 using System.Text.Json;
 using Microsoft.Extensions.Options;
-using SCIRE.Foundation.Abstractions.Config;
-using SCIRE.Foundation.Abstractions.Config.Persistence;
+using SCIRE.Foundation.Abstractions.Configuration;
+using SCIRE.Foundation.Abstractions.Configuration.Persistence;
 
 namespace SCIRE.Foundation.Runtime.Configuration;
 

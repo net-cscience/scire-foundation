@@ -1,5 +1,5 @@
 using Microsoft.Extensions.Options;
-using SCIRE.Foundation.Abstractions.Config;
+using SCIRE.Foundation.Abstractions.Configuration;
 using SCIRE.Foundation.Runtime.Configuration;
 using SCIRE.Foundation.Runtime.Configuration.Json;
 using SCIRE.Foundation.Runtime.Tests.Configuration.Support;

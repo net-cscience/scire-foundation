@@ -1,4 +1,4 @@
-namespace SCIRE.Foundation.Abstractions.Config;
+namespace SCIRE.Foundation.Abstractions.Configuration;
 
 /// <summary>Owns an isolated configuration draft and its persistence operation.</summary>
 public interface IConfigurationEdit<T> : IDisposable where T : class, IPersistableConfig

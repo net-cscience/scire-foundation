@@ -1,3 +1,5 @@
+    namespace SCIRE.Foundation.Runtime.Configuration;
+
     public sealed class Subscription(Action unsubscribe) : IDisposable
     {
         private Action? _unsubscribe = unsubscribe;

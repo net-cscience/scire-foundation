@@ -1,7 +1,7 @@
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Text.RegularExpressions;
-using SCIRE.Foundation.Abstractions.Config;
+using SCIRE.Foundation.Abstractions.Configuration;
 using SCIRE.Foundation.Runtime.Configuration.Persistence;
 
 namespace SCIRE.Foundation.Runtime.Configuration.Json;

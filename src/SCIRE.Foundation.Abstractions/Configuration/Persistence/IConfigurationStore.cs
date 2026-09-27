@@ -1,4 +1,4 @@
-namespace SCIRE.Foundation.Abstractions.Config.Persistence;
+namespace SCIRE.Foundation.Abstractions.Configuration.Persistence;
 
 /// <summary>Loads configuration instances and privately tracks their original stored state.</summary>
 public interface IConfigurationStore<T> where T : class, IPersistableConfig

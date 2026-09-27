@@ -1,4 +1,4 @@
-namespace SCIRE.Foundation.Abstractions.Config;
+namespace SCIRE.Foundation.Abstractions.Configuration;
 
 /// <summary>Identifies configuration data that can be persisted.</summary>
 /// <remarks>The store owns storage identity and conflict tracking.</remarks>

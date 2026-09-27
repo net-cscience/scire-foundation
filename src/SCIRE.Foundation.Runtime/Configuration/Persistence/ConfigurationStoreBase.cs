@@ -1,7 +1,7 @@
 using System.Runtime.CompilerServices;
 using System.Security.Cryptography;
-using SCIRE.Foundation.Abstractions.Config;
-using SCIRE.Foundation.Abstractions.Config.Persistence;
+using SCIRE.Foundation.Abstractions.Configuration;
+using SCIRE.Foundation.Abstractions.Configuration.Persistence;
 
 namespace SCIRE.Foundation.Runtime.Configuration.Persistence;
 

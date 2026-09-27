@@ -1,6 +1,6 @@
 using Microsoft.Extensions.Options;
 
-namespace SCIRE.Foundation.Abstractions.Config;
+namespace SCIRE.Foundation.Abstractions.Configuration;
 
 /// <summary>Provides independent reader values and persistence for one configuration.</summary>
 /// <remarks>Only the default options name is supported. CurrentValue returns a reader copy; use LoadAsync to obtain an editable instance.</remarks>

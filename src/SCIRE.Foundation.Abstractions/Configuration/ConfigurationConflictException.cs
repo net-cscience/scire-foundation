@@ -1,4 +1,4 @@
-namespace SCIRE.Foundation.Abstractions.Config;
+namespace SCIRE.Foundation.Abstractions.Configuration;
 
 /// <summary>Indicates that storage no longer matches the instance's original stored state.</summary>
 public sealed class ConfigurationConflictException : IOException

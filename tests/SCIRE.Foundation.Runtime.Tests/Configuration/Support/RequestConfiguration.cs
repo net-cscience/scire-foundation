@@ -1,4 +1,4 @@
-namespace SCIRE.Foundation.Runtime.Tests.Configuration;
+namespace SCIRE.Foundation.Runtime.Tests.Configuration.Support;
 
 public sealed class RequestConfiguration
 {

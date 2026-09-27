@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 using Microsoft.Extensions.Options;
-using SCIRE.Foundation.Abstractions.Config;
+using SCIRE.Foundation.Abstractions.Configuration;
 
 namespace SCIRE.Foundation.Runtime.Tests.Configuration.Support;
 
