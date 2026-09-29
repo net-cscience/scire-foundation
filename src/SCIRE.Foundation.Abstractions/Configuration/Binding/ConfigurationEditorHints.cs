@@ -6,4 +6,6 @@ public static class ConfigurationEditorHints
     public const string FilePath = "file-path";
     public const string DirectoryPath = "directory-path";
     public const string Multiline = "multiline";
+    public const string Password = "password";
+    public const string Color = "color";
 }

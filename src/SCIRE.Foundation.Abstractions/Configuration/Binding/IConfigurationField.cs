@@ -37,4 +37,5 @@ public interface IConfigurationField
 
     /// <summary>Assigns a value to the bound instance without persisting it.</summary>
     void SetValue(object? value);
+    
 }
