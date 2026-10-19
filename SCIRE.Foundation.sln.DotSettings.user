@@ -16,6 +16,7 @@
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=e1c80042_002Dd506_002D4948_002D94d5_002D0cda726c4d92/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="Save_PublishesChanges_RejectsStaleCopies_AndAllowsRepeatedSaves" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
   &lt;TestAncestor&gt;&#xD;
     &lt;TestId&gt;xUnit::A252F583-6393-4EEE-BB7B-A02CA64095D5::net10.0::SCIRE.Foundation.Runtime.Tests.Configuration.PersistingOptionsMonitorTests.Save_PublishesChanges_RejectsStaleCopies_AndAllowsRepeatedSaves&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::3D39B9F0-C26A-4D8B-BB04-B04F64BA442C::net10.0::SCIRE.Foundation.Service.Evaluation.Tests.Dres.DresLiveTests.LiveDres_SmokeTest&lt;/TestId&gt;&#xD;
   &lt;/TestAncestor&gt;&#xD;
 &lt;/SessionState&gt;</s:String>
 	<s:String x:Key="/Default/Housekeeping/UnitTestingMru/UnitTestRunner/RunConfigurationFilename/@EntryValue">D:\myRepo\net.cscience\scire-foundation\tests\SCIRE.Foundation.Service.Evaluation.Tests\.runsettings</s:String></wpf:ResourceDictionary>
